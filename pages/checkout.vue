@@ -128,7 +128,7 @@
 	const user = useSupabaseUser();
 	const route = useRoute();
 
-	definePageMeta({ middleware: "auth" })
+	definePageMeta({ middleware: "auth" });
 
 	let stripe = null;
 	let elements = null;
@@ -243,9 +243,21 @@
 	//     }
 	// }
 
-	// const createOrder = async (stripeId) => {
-
-	// }
+	const createOrder = async (stripeId) => {
+		await useFetch("/api/prisma/create-order", {
+			method: "POST",
+			body: {
+				userId: user.value.id,
+				stripeId: stripeId,
+				name: currentAddress.value.data.name,
+				address: currentAddress.value.data.address,
+				zipcode: currentAddress.value.data.zipcode,
+				city: currentAddress.value.data.city,
+				country: currentAddress.value.data.country,
+				products: userStore.checkout,
+			},
+		});
+	};
 
 	// const showError = (errorMsgText) => {
 	//     let errorMsg = document.querySelector("#card-error");
