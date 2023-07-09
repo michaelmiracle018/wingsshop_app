@@ -5,7 +5,7 @@
 				<img src="/success.png" alt="check" />
 			</div>
 			<div class="text-wrap">
-				<h5 class="text-xl ">You have successfully palced your order</h5>
+				<h5 class="text-xl ">You have successfully placed your order</h5>
 			</div>
 			<div class="btn-wrap">
 				<button @click="handleContunuePurchase">Continue Buying</button>
