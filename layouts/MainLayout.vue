@@ -172,6 +172,7 @@
 
 	const client = useSupabaseClient();
 	const user = useSupabaseUser();
+	// console.log(user.user_metadata.avatar_url);
 
 	let isAccountMenu = ref(false);
 	let isCartHover = ref(false);
